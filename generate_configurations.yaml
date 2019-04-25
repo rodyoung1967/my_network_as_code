@@ -1,4 +1,12 @@
 ---
+ - name: Ensure Configs Directory Preset
+   connection: local
+   hosts: localhost
+   gather_facts: no
+   tasks:
+   - file:
+      path: configs/
+      state: directory
  - name: Generate IOS-XE Router Configurations
    connection: local
    hosts: cisco-ios-xe-routers
@@ -6,4 +14,12 @@
    tasks:
    - template:
        src=templates/cisco_ios_xe_router.j2
+       dest=configs/{{ inventory_hostname }}
+ - name: Generate NX-OS Configurations
+   connection: local
+   hosts: cisco-nxos
+   gather_facts: no
+   tasks:
+   - template:
+       src=templates/cisco_nxos.j2
        dest=configs/{{ inventory_hostname }}
