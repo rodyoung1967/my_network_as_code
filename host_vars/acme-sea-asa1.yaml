@@ -7,7 +7,6 @@ ethernet_interfaces: {
 'security_level': 0,
 },
 'description': 'to acme-sea-rtr1'
-'GigabitEthernet0/1': {
 'ip': '10.255.255.1',
 'mask': '255.255.255.240',
 'nameif': 'inside',

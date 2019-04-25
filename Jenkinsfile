@@ -3,6 +3,7 @@ stage ('Checkout Repository') {
   deleteDir()
   checkout scm
   }
+
   stage ('Setup Environment') {
     sh 'python3 -m venv jenkins_build'
     sh 'jenkins_build/bin/python -m pip install -r requirements.txt'

@@ -2,7 +2,7 @@ timezone: PST
 timezone_offset: -8
 timezone_summer: PDT
 
-domain_name: sea>acme.io
+domain_name: sea.acme.io
 name_server_1: 8.8.8.8
 name_server_2: 8.8.4.4
 
