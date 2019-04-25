@@ -11,7 +11,16 @@
       password: "ignw"
       dev_os: "ios"
   tags: ios-xe
-  
+  tasks:
+    - napalm_install_config:
+        provider: "{{ creds }}"
+        config_file: "configs/{{ inventory_hostname }}"
+        commit_changes: True
+        replace_config: False
+      register: napalm_diff
+    - debug:
+        msg: "{{ item }}"
+      with_items: "{{ napalm_diff.msg.split('\n') }}"
 - name: Deploy Cisco NX-OS Configurations
   connection: local
   hosts: cisco-nxos
