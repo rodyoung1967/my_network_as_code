@@ -14,7 +14,7 @@ stage ('Checkout Repository') {
   }
 
   stage ('Unit Testing') {
-    sh 'ansible-playbook depoy_configurations.yaml --syntax-check'
+    sh 'ansible-playbook deploy_configurations.yaml --syntax-check'
   }
 
   stage ('Deploy Configurations to Dev') {
@@ -35,7 +35,7 @@ stage ('Checkout Repository') {
   stage ('Promote Configurations to Production') {
     // Ping stuff and make sure we didn't blow up dev!
   }
-  
+
   stage ('Production Functional/Integration Testing') {
     // Ping stuff and make sure we didn't blow up prod!
   }
