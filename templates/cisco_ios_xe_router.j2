@@ -6,7 +6,7 @@ hostname {{ inventory_hostname }}
 !
 logging {{ logging_buff_size }}
 !
-clock {{ timezone }} {{ timezone_offset }} 0
+clock timezone {{ timezone }} {{ timezone_offset }} 0
 clock summer-time {{ timezone_summer }} recurring
 !
 no aaa new-model
@@ -47,7 +47,7 @@ login local
 ntp master 5
 {% for server, data in ntp.items() %}
  ntp server {{ server }}{% if data['prefer'] == true %} prefer {% endif %}
- 
+
 {% endfor %}
 !
 end
