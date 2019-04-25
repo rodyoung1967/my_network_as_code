@@ -10,7 +10,7 @@ stage ('Checkout Repository') {
 
   stage ('Render Configurations') {
       // Generate our configurations with our sweet Playbooks
-      sh 'ansible-playbook generate_configurations.yaml' -e "ansible_python_interpreter=jenkins_build/bin/python"
+      sh 'ansible-playbook generate_configurations.yaml -e "ansible_python_interpreter=jenkins_build/bin/python"'
   }
 
   stage ('Unit Testing') {
