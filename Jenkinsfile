@@ -1,4 +1,8 @@
 node {
+stage ('Checkout Repository') {
+  deleteDir()
+  checkout scm
+  }
   stage ('Checkout Repository') {
       // Get our repo cloned and prepped for action
   }
@@ -22,8 +26,5 @@ node {
     // Ping stuff and make sure we didn't blow up prod!
   }
 
-  stage ('Checkout Repository') {
-    deleteDir()
-    checkout scm
-  }
+
 }
